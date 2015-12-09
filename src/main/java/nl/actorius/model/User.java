@@ -1,25 +1,28 @@
 package nl.actorius.model;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonView;
+import nl.actorius.View;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.Length;
 
 /**
- *
+ * Meer informatie over validatie:
+ *  http://hibernate.org/validator/
+ * 
  * @author Peter van Vliet
  */
 public class User
 {
     @Length(min = 3, max = 100)
-    @JsonProperty
+    @JsonView(View.Public.class)
     private String fullName;
     
     @Email
-    @JsonProperty
+    @JsonView(View.Public.class)
     private String emailAddress;
     
     @Length(min = 8)
-    @JsonProperty
+    @JsonView(View.Private.class)
     private String password;
 
     public String getFullName()

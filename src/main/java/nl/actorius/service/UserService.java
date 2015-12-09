@@ -17,18 +17,34 @@ public class UserService extends BaseService<User>
         this.dao = dao;
     }
     
-    public User getUser(int id)
+    public Collection<User> getAll()
     {
-        return requireResult(dao.getUser(id));
+        return dao.getAll();
     }
     
-    public Collection<User> getAllUsers()
+    public User get(int id)
     {
-        return dao.getAllUsers();
+        return requireResult(dao.get(id));
     }
     
-    public void addUser(User user)
+    public void add(User user)
     {
-        dao.saveUser(user);
+        dao.add(user);
+    }
+    
+    public void update(int id, User user)
+    {
+        // Eerst controleren of deze gebruiker wel bestaat
+        User oldUser = get(id);
+        
+        dao.update(id, user);
+    }
+    
+    public void delete(int id)
+    {
+        // Eerst controleren of deze gebruiker wel bestaat
+        User user = get(id);
+        
+        dao.delete(id);
     }
 }

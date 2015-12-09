@@ -29,7 +29,12 @@ public class UserDAO
         users.add(user2);
     }
     
-    public User getUser(int id)
+    public List<User> getAll()
+    {
+        return users;
+    }
+    
+    public User get(int id)
     {
         try
         {
@@ -41,13 +46,18 @@ public class UserDAO
         }
     }
     
-    public List<User> getAllUsers()
-    {
-        return users;
-    }
-    
-    public void saveUser(User user)
+    public void add(User user)
     {
         users.add(user);
+    }
+    
+    public void update(int id, User user)
+    {
+        users.set(id, user);
+    }
+    
+    public void delete(int id)
+    {
+        users.remove(id);
     }
 }
