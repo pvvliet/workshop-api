@@ -1,7 +1,9 @@
 package nl.actorius.resource;
 
 import com.fasterxml.jackson.annotation.JsonView;
+import io.dropwizard.auth.Auth;
 import java.util.Collection;
+import javax.annotation.security.RolesAllowed;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -34,6 +36,7 @@ public class UserResource
     
     @GET
     @JsonView(View.Public.class)
+    @RolesAllowed("GUEST")
     public Collection<User> retrieveAll()
     {
         return service.getAll();
@@ -42,6 +45,7 @@ public class UserResource
     @GET
     @Path("/{id}")
     @JsonView(View.Public.class)
+    @RolesAllowed("GUEST")
     public User retrieve(@PathParam("id") int id)
     {
         return service.get(id);
@@ -49,7 +53,7 @@ public class UserResource
     
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
-    @JsonView(View.Private.class)
+    @JsonView(View.Protected.class)
     public void create(User user)
     {
         service.add(user);
@@ -58,16 +62,26 @@ public class UserResource
     @PUT
     @Path("/{id}")
     @Consumes(MediaType.APPLICATION_JSON)
-    @JsonView(View.Private.class)
-    public void update(@PathParam("id") int id, User user)
+    @JsonView(View.Protected.class)
+    @RolesAllowed("GUEST")
+    public void update(@PathParam("id") int id, @Auth User authenticator, User user)
     {
-        service.update(id, user);
+        service.update(authenticator, id, user);
     }
     
     @DELETE
     @Path("/{id}")
+    @RolesAllowed("ADMIN")
     public void delete(@PathParam("id") int id)
     {
         service.delete(id);
+    }
+    
+    @GET
+    @Path("/me")
+    @JsonView(View.Private.class)
+    public User authenticate(@Auth User authenticator)
+    {
+        return authenticator;
     }
 }

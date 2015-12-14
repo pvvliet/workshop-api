@@ -1,1 +1,11 @@
 apiName: "Peters API"
+
+assets:
+  mappings:
+    /assets: /
+  overrides:
+    /: ../workshop-client/public_html/
+
+server:
+  rootPath: /api/*
+  adminContextPath: /admin

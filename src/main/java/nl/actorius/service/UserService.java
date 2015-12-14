@@ -29,20 +29,29 @@ public class UserService extends BaseService<User>
     
     public void add(User user)
     {
+        user.setRoles(new String[] { "GUEST" });
+        
         dao.add(user);
     }
     
-    public void update(int id, User user)
+    public void update(User authenticator, int id, User user)
     {
-        // Eerst controleren of deze gebruiker wel bestaat
+        // Controleren of deze gebruiker wel bestaat
         User oldUser = get(id);
+        
+        if (!authenticator.hasRole("ADMIN"))
+        {
+            // Vaststellen dat de geauthenticeerde gebruiker
+            // zichzelf aan het aanpassen is
+            assertSelf(authenticator, oldUser);
+        }
         
         dao.update(id, user);
     }
     
     public void delete(int id)
     {
-        // Eerst controleren of deze gebruiker wel bestaat
+        // Controleren of deze gebruiker wel bestaat
         User user = get(id);
         
         dao.delete(id);

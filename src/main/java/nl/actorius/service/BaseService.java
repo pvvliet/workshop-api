@@ -1,6 +1,8 @@
 package nl.actorius.service;
 
+import javax.ws.rs.ForbiddenException;
 import javax.ws.rs.NotFoundException;
+import nl.actorius.model.User;
 
 /**
  *
@@ -17,5 +19,13 @@ public class BaseService<T>
         }
         
         return model;
+    }
+    
+    public void assertSelf(User user1, User user2)
+    {
+        if (!user1.equals(user2))
+        {
+            throw new ForbiddenException();
+        }
     }
 }
