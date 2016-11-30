@@ -10,6 +10,8 @@ import io.dropwizard.auth.AuthenticationException;
 import io.dropwizard.auth.Authenticator;
 import io.dropwizard.auth.Authorizer;
 import io.dropwizard.auth.basic.BasicCredentials;
+import javax.inject.Inject;
+import javax.inject.Singleton;
 import nl.actorius.model.User;
 import nl.actorius.persistence.UserDAO;
 
@@ -17,10 +19,12 @@ import nl.actorius.persistence.UserDAO;
  *
  * @author Peter van Vliet
  */
+@Singleton
 public class AuthenticationService implements Authenticator<BasicCredentials, User>, Authorizer<User>
 {
     private final UserDAO userDAO;
     
+    @Inject
     public AuthenticationService(UserDAO userDAO)
     {
         this.userDAO = userDAO;

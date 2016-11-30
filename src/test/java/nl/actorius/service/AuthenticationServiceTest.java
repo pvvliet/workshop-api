@@ -1,6 +1,6 @@
 package nl.actorius.service;
 
-import com.google.common.base.Optional;
+import java.util.Optional;
 import io.dropwizard.auth.AuthenticationException;
 import io.dropwizard.auth.basic.BasicCredentials;
 import nl.actorius.model.User;

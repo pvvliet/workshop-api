@@ -1,6 +1,8 @@
 package nl.actorius.service;
 
 import java.util.Collection;
+import javax.inject.Inject;
+import javax.inject.Singleton;
 import nl.actorius.model.User;
 import nl.actorius.persistence.UserDAO;
 
@@ -8,10 +10,12 @@ import nl.actorius.persistence.UserDAO;
  *
  * @author Peter van Vliet
  */
+@Singleton
 public class UserService extends BaseService<User>
 {
     private final UserDAO dao;
     
+    @Inject
     public UserService(UserDAO dao)
     {
         this.dao = dao;

@@ -1,9 +1,11 @@
 package nl.actorius.resource;
 
 import com.fasterxml.jackson.annotation.JsonView;
+import com.google.inject.Singleton;
 import io.dropwizard.auth.Auth;
 import java.util.Collection;
 import javax.annotation.security.RolesAllowed;
+import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -23,12 +25,14 @@ import nl.actorius.service.UserService;
  * 
  * @author Peter van Vliet
  */
+@Singleton
 @Path("/users")
 @Produces(MediaType.APPLICATION_JSON)
 public class UserResource
 {
     private final UserService service;
     
+    @Inject
     public UserResource(UserService service)
     {
         this.service = service;
