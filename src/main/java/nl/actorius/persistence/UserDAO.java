@@ -3,12 +3,14 @@ package nl.actorius.persistence;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import javax.inject.Singleton;
 import nl.actorius.model.User;
 
 /**
  *
  * @author Peter van Vliet
  */
+@Singleton
 public class UserDAO
 {
     private final List<User> users;
