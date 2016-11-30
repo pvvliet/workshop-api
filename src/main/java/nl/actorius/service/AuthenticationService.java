@@ -5,7 +5,7 @@
  */
 package nl.actorius.service;
 
-import com.google.common.base.Optional;
+import java.util.Optional;
 import io.dropwizard.auth.AuthenticationException;
 import io.dropwizard.auth.Authenticator;
 import io.dropwizard.auth.Authorizer;
@@ -25,7 +25,7 @@ public class AuthenticationService implements Authenticator<BasicCredentials, Us
     {
         this.userDAO = userDAO;
     }
-    
+
     @Override
     public Optional<User> authenticate(BasicCredentials credentials) throws AuthenticationException
     {
@@ -36,7 +36,7 @@ public class AuthenticationService implements Authenticator<BasicCredentials, Us
             return Optional.of(user);
         }
         
-        return Optional.absent();
+        return Optional.empty();
     }
 
     @Override
