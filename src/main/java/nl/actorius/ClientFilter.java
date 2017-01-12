@@ -25,7 +25,10 @@ public class ClientFilter implements Filter
         "png", "jpg", "gif", "svg",
         
         // Fonts
-        "eot", "ttf", "woff", "woff2"
+        "eot", "ttf", "woff", "woff2",
+        
+        // Downloads
+        "pdf", "zip", "doc", "docx", "xls", "xlsx", "ppt", "pptx"
     };
     
     @Override
