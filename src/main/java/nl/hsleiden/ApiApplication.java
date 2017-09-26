@@ -1,5 +1,5 @@
 
-package nl.actorius;
+package nl.hsleiden;
 
 import com.google.inject.Module;
 import com.hubspot.dropwizard.guice.GuiceBundle.Builder;
@@ -14,8 +14,8 @@ import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
 import java.util.EnumSet;
 import javax.servlet.DispatcherType;
-import nl.actorius.model.User;
-import nl.actorius.service.AuthenticationService;
+import nl.hsleiden.model.User;
+import nl.hsleiden.service.AuthenticationService;
 import org.eclipse.jetty.servlet.FilterHolder;
 import org.glassfish.jersey.server.filter.RolesAllowedDynamicFeature;
 import org.slf4j.Logger;
@@ -65,7 +65,7 @@ public class ApiApplication extends Application<ApiConfiguration>
     {
         Builder guiceBuilder = GuiceBundle.<ApiConfiguration>newBuilder()
                 .addModule(module)
-                .enableAutoConfig(new String[] { "nl.actorius" })
+                .enableAutoConfig(new String[] { "nl.hsleiden" })
                 .setConfigClass(configurationClass);
 
         return guiceBuilder.build();

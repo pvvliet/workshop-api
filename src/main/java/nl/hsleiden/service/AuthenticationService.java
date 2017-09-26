@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package nl.actorius.service;
+package nl.hsleiden.service;
 
 import java.util.Optional;
 import io.dropwizard.auth.AuthenticationException;
@@ -12,8 +12,8 @@ import io.dropwizard.auth.Authorizer;
 import io.dropwizard.auth.basic.BasicCredentials;
 import javax.inject.Inject;
 import javax.inject.Singleton;
-import nl.actorius.model.User;
-import nl.actorius.persistence.UserDAO;
+import nl.hsleiden.model.User;
+import nl.hsleiden.persistence.UserDAO;
 
 /**
  *

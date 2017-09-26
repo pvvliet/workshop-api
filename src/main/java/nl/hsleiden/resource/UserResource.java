@@ -1,4 +1,4 @@
-package nl.actorius.resource;
+package nl.hsleiden.resource;
 
 import com.fasterxml.jackson.annotation.JsonView;
 import com.google.inject.Singleton;
@@ -6,6 +6,7 @@ import io.dropwizard.auth.Auth;
 import java.util.Collection;
 import javax.annotation.security.RolesAllowed;
 import javax.inject.Inject;
+import javax.validation.Valid;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -15,9 +16,9 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
-import nl.actorius.View;
-import nl.actorius.model.User;
-import nl.actorius.service.UserService;
+import nl.hsleiden.View;
+import nl.hsleiden.model.User;
+import nl.hsleiden.service.UserService;
 
 /**
  * Meer informatie over resources:
@@ -58,7 +59,7 @@ public class UserResource
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @JsonView(View.Protected.class)
-    public void create(User user)
+    public void create(@Valid User user)
     {
         service.add(user);
     }

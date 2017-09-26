@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package nl.actorius;
+package nl.hsleiden;
 
 import com.google.inject.AbstractModule;
 

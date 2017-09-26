@@ -1,9 +1,9 @@
-package nl.actorius.model;
+package nl.hsleiden.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonView;
 import java.security.Principal;
-import nl.actorius.View;
+import nl.hsleiden.View;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;

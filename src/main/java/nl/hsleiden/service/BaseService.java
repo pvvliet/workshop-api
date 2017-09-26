@@ -1,8 +1,8 @@
-package nl.actorius.service;
+package nl.hsleiden.service;
 
 import javax.ws.rs.ForbiddenException;
 import javax.ws.rs.NotFoundException;
-import nl.actorius.model.User;
+import nl.hsleiden.model.User;
 
 /**
  *

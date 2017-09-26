@@ -1,4 +1,4 @@
-package nl.actorius;
+package nl.hsleiden;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.dropwizard.Configuration;

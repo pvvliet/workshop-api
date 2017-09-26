@@ -1,4 +1,4 @@
-package nl.actorius;
+package nl.hsleiden;
 
 /**
  * Meer informatie over views:

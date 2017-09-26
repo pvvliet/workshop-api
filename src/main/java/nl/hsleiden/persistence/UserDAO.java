@@ -1,10 +1,10 @@
-package nl.actorius.persistence;
+package nl.hsleiden.persistence;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import javax.inject.Singleton;
-import nl.actorius.model.User;
+import nl.hsleiden.model.User;
 
 /**
  *

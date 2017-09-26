@@ -1,10 +1,10 @@
-package nl.actorius.service;
+package nl.hsleiden.service;
 
 import java.util.Collection;
 import javax.inject.Inject;
 import javax.inject.Singleton;
-import nl.actorius.model.User;
-import nl.actorius.persistence.UserDAO;
+import nl.hsleiden.model.User;
+import nl.hsleiden.persistence.UserDAO;
 
 /**
  *

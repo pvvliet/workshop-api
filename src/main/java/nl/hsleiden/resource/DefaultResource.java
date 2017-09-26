@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package nl.actorius.resource;
+package nl.hsleiden.resource;
 
 import javax.inject.Singleton;
 import javax.ws.rs.GET;

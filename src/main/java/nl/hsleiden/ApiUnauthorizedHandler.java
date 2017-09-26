@@ -1,4 +1,4 @@
-package nl.actorius;
+package nl.hsleiden;
 
 import io.dropwizard.auth.UnauthorizedHandler;
 import javax.ws.rs.core.MediaType;
