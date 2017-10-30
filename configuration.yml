@@ -4,7 +4,7 @@ assets:
   mappings:
     /assets: /
   overrides:
-    /: ../workshop-client/public_html/
+    /: ../workshop-client/
 
 server:
   rootPath: /api/*
