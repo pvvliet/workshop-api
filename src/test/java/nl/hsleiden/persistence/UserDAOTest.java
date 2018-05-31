@@ -1,17 +1,17 @@
-package nl.actorius.persistence;
+package nl.hsleiden.persistence;
 
-import nl.hsleiden.persistence.UserDAO;
 import nl.hsleiden.model.User;
 import org.junit.After;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertSame;
 import org.junit.Before;
 import org.junit.Test;
 
 /**
  *
- * @author Peter van Vliet <peter@actorius.nl>
+ * @author Peter van Vliet
  */
 public class UserDAOTest
 {
@@ -56,15 +56,25 @@ public class UserDAOTest
     }
     
     @Test
-    public void testGetByEmailAddress()
+    public void testGetByEmailAddressSuccess()
     {
-        System.out.println("Test by email address");
+        System.out.println("Test by email address success");
         
         String expectedName = "First user";
         User actual = subject.getByEmailAddress("first@user.com");
         
         assertNotNull(actual);
         assertEquals(expectedName, actual.getName());
+    }
+    
+    @Test
+    public void testGetByEmailAddressFailed()
+    {
+        System.out.println("Test by email address failed");
+        
+        User actual = subject.getByEmailAddress("third@user.com");
+        
+        assertNull(actual);
     }
     
     @Test
@@ -81,5 +91,28 @@ public class UserDAOTest
         int actualSize = subject.getAll().size();
         
         assertEquals(expectedSize, actualSize);
+    }
+    
+    @Test
+    public void testUpdate()
+    {
+        User expected = new User();
+        expected.setFullName("Peter van Vliet");
+        
+        subject.update(1, expected);
+        
+        User actual = subject.get(1);
+        
+        assertSame(expected, actual);
+    }
+    
+    @Test
+    public void testDelete()
+    {
+        subject.delete(1);
+        
+        User actual = subject.get(1);
+        
+        assertNull(actual);
     }
 }

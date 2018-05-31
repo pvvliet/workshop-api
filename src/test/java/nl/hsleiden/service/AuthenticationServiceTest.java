@@ -1,6 +1,5 @@
-package nl.actorius.service;
+package nl.hsleiden.service;
 
-import nl.hsleiden.service.AuthenticationService;
 import java.util.Optional;
 import io.dropwizard.auth.AuthenticationException;
 import io.dropwizard.auth.basic.BasicCredentials;
@@ -14,7 +13,7 @@ import org.junit.Test;
 
 /**
  *
- * @author Peter van Vliet <peter@actorius.nl>
+ * @author Peter van Vliet
  */
 public class AuthenticationServiceTest
 {
@@ -22,6 +21,10 @@ public class AuthenticationServiceTest
     
     public AuthenticationServiceTest()
     {
+        // Deze DAO kan worden vervangen door een mockobject.
+        // In dit voorbeeld is dat niet nodig omdat de DAO geen verbinding heeft
+        // met de database en een vaste lijst met gebruikers bevat.
+        // (eigenlijk is deze DAO dus al een mockobject)
         UserDAO userDAO = new UserDAO();
         
         subject = new AuthenticationService(userDAO);
