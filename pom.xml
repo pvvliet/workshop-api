@@ -8,10 +8,28 @@
     <packaging>jar</packaging>
     
     <properties>
+        
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
+        
         <dropwizard.version>1.1.4</dropwizard.version>
+        
+        <sonar.projectKey>workshop-api</sonar.projectKey>
+        <sonar.projectName>Workshop API</sonar.projectName>
+        <sonar.projectVersion>0.1.0</sonar.projectVersion>
+        <sonar.java.source>1.8</sonar.java.source>
+        <sonar.java.binaries>target/classes</sonar.java.binaries>
+        <sonar.sources>src/main</sonar.sources>
+        <sonar.tests>src/test</sonar.tests>
+        <!-- Below property indicates the pattern of the test suite -->
+        <runSuite>**/*Suite.class</runSuite>
+        <!-- Sonar-JaCoCo properties -->
+        <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
+        <sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
+        <sonar.language>java</sonar.language>
+        
     </properties>
     
     <dependencies>
@@ -89,6 +107,11 @@
                         </configuration>
                     </execution>
                 </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>sonar-maven-plugin</artifactId>
+                <version>3.0.2</version>
             </plugin>
         </plugins>
     </build>
