@@ -6,6 +6,7 @@
 
 package nl.hsleiden.resource;
 
+import java.util.Optional;
 import javax.inject.Singleton;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -23,8 +24,10 @@ public class DefaultResource
 {
     @GET
     @Produces(MediaType.TEXT_PLAIN)
-    public String get(@QueryParam("name") String name)
+    public String get(@QueryParam("name") Optional<String> name)
     {
-        return "Hello " + name;
+        String displayName = name.orElse("world");
+        
+        return "Hello " + displayName;
     }
 }
