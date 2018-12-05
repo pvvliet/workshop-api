@@ -4,7 +4,7 @@ package nl.hsleiden;
  * Meer informatie over views:
  *  http://www.baeldung.com/jackson-json-view-annotation
  * 
- * @author Peter van Vliet <peter@actorius.nl>
+ * @author Peter van Vliet
  * @since 1.0
  */
 public class View
